@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between p-4 border-b shadow-sm">
+    <header className="flex items-center justify-between p-4 border-b shadow-sm mb-10">
       <Link to="/" className="flex items-center space-x-1 text-gray-700">
         <div className="flex items-center space-x-4 p-3">
           <h1 className="text-4xl font-bold text-blue-600">RIVERISLAND</h1>
@@ -16,7 +16,6 @@ const Header = () => {
             <span>Products</span>
             <ChevronDown size={18} />
           </div>
-
           <div className="absolute left-0 mt-2 w-40 bg-white border rounded shadow-lg 
                   opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                   transition-all duration-200 z-50"
@@ -27,7 +26,9 @@ const Header = () => {
             <Link to="/products/kids" className="block px-4 py-2 hover:bg-gray-100">Kids</Link>
           </div>
         </div>
-
+        <Link to="/login" className="text-gray-700 hover:text-blue-500">
+          Login
+        </Link>
         <Link to="/" className="flex items-center space-x-1 text-gray-700 hover:text-blue-500">
           <Search size={25} />
         </Link>
