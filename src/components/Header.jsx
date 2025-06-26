@@ -1,4 +1,4 @@
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { X, Ellipsis, ChevronDown, User, Heart, ShoppingBag, Search, } from "lucide-react"
 import { Link } from 'react-router-dom'
 const navigation = [
@@ -14,7 +14,7 @@ function classNames(...classes) {
 
 export default function Header() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-900">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -27,7 +27,7 @@ export default function Header() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Link to="/" className="text-4xl font-bold text-blue-600">FlowCart</Link>
+            <Link to="/" className="text-4xl font-bold text-blue-200">FlowCart</Link>
             <div className="hidden sm:flex sm:ml-auto">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
@@ -62,10 +62,12 @@ export default function Header() {
                   transition-all duration-200 z-50"
                     onMouseEnter={(e) => e.currentTarget.classList.add('opacity-100', 'visible')}
                     onMouseLeave={(e) => e.currentTarget.classList.remove('opacity-100', 'visible')}>
-                    <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Electronics</Link>
-                    <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Jewelery</Link>
-                    <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Men's Clothing</Link>
-                    <Link to="#" className="block px-4 py-2 hover:bg-gray-100">Women's Clothing</Link>
+                      <Link to="/" className="block px-4 py-2 hover:bg-gray-100">All Products</Link>
+                    <Link to="/category/electronics" className="block px-4 py-2 hover:bg-gray-100">Electronics</Link>
+                    <Link to="/category/jewelery" className="block px-4 py-2 hover:bg-gray-100">Jewelery</Link>
+                    <Link to="/category/men's clothing" className="block px-4 py-2 hover:bg-gray-100">Men's Clothing</Link>
+                    <Link to="/category/women's clothing" className="block px-4 py-2 hover:bg-gray-100">Women's Clothing</Link>
+
                   </div>
                 </div>
               </div>

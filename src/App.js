@@ -4,6 +4,7 @@ import Account from './pages/Account';
 import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
+import Category from './pages/Category';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/" element={<Home />} />
+          <Route path="/category/:categoryName" element={<Category />} />
           <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
     </Router>

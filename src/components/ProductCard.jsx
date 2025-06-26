@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
             alt={product.title}
             className="h-72 w-full object-contain bg-white border border-gray-200"
           />
-          <div className="absolute bottom-0 left-0 w-full bg-black text-white text-xs text-center py-1 uppercase">
+          <div className="absolute bottom-0 left-0 w-full bg-gray-900 text-blue-200 text-xs text-center py-1 uppercase">
             {product.category}
           </div>
         </div>
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
           <div className="relative max-w-[85%] overflow-hidden">
             <h2 className="font-medium text-sm whitespace-nowrap overflow-hidden">
               <span className="block">{product.title}</span>
-              <div className="absolute top-0 right-0 w-6 h-full bg-gradient-to-l from-white"></div>
+              <div className="absolute top-0 right-0 w-3 h-full bg-gradient-to-l from-white"></div>
             </h2>
           </div>
           <button
