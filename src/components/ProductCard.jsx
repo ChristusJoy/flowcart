@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   const [isFav, setIsFav] = useState(false);
   const toggleFav = () => setIsFav(!isFav);
   return (
-    <div className="w-64 flex-shrink-0 mx-2">
+    <div className="w-full ">
       <Link
         to={`/product/${product.id}`}
         className="text-blue-500 text-xs ml-2"
