@@ -1,22 +1,28 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Heart } from 'lucide-react'; 
+import { Heart } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
   const [isFav, setIsFav] = useState(false);
   const toggleFav = () => setIsFav(!isFav);
   return (
     <div className="w-64 flex-shrink-0 mx-2">
-      <div className="relative group">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="h-72 w-full object-contain bg-white border border-gray-200"
-        />
-        <div className="absolute bottom-0 left-0 w-full bg-black text-white text-xs text-center py-1 uppercase">
-          {product.category}
+      <Link
+        to={`/product/${product.id}`}
+        className="text-blue-500 text-xs ml-2"
+      >
+        <div className="relative group">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="h-72 w-full object-contain bg-white border border-gray-200"
+          />
+          <div className="absolute bottom-0 left-0 w-full bg-black text-white text-xs text-center py-1 uppercase">
+            {product.category}
+          </div>
         </div>
-      </div>
+      </Link>
+
       <div className="mt-2 text-sm space-y-1">
         <div className="flex items-start justify-between">
           <div className="relative max-w-[85%] overflow-hidden">
@@ -35,12 +41,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="flex justify-between items-center">
           <p className="font-semibold">$ {product.price}</p>
-          <Link
-            to={`/product/${product.id}`}
-            className="text-blue-500 text-xs ml-2"
-          >
-            View
-          </Link>
+
         </div>
       </div>
     </div>
