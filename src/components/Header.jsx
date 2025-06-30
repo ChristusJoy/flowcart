@@ -27,7 +27,7 @@ export default function Header() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Link to="/" className="text-7xl font-bold text-blue-200">FlowCart</Link>
+            <Link to="/" className="text-4xl md:text-7xl font-bold text-blue-200 ">FlowCart</Link>
             <div className="hidden sm:flex sm:ml-auto">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
@@ -49,7 +49,7 @@ export default function Header() {
 
                   </a>
                 ))}
-                <div className="relative group">
+                <div className="relative group flex rounded-md px-3 py-2">
                   <div className={classNames(
                     'text-xl text-gray-300 hover:bg-gray-700 hover:text-white',
                     'rounded-md px-3 text-sm font-medium flex items-center',
@@ -75,7 +75,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
 
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
