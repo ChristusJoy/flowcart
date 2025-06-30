@@ -64,9 +64,9 @@ const ProductDetails = () => {
                 <span className="text-base md:text-lg">Add To Cart</span>
               </button>
               <button
-                className="flex h-full items-center justify-center px-4 border border-black rounded-md "
+                className="flex h-full items-center justify-center px-4"
               >
-                <Heart size={45} strokeWidth={1} />
+                <Heart size={60} strokeWidth={1} />
               </button>
             </div>
             <button
