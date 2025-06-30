@@ -9,7 +9,6 @@ const Account = () => {
         <>
             <Header />
             <div className="flex flex-col min-h-screen bg-gray-100">
-                {/* Main content area grows to fill vertical space */}
                 <main className="flex-grow flex justify-center items-center px-4 sm:px-6 lg:px-8">
                     <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-2xl shadow-lg my-12">
                         <div className="flex justify-center mb-6 px-4">

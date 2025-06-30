@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import { Heart, Star, StarHalf } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const renderStars = (rating) => {
   const stars = [];
@@ -52,32 +53,36 @@ const ProductDetails = () => {
         </div>
         <div className="flex flex-col w-full md:pl-5 md:pt-10">
           <h2 className="text-2xl md:text-5xl font-medium mt-4">{product.title}</h2>
-          <h2 className="flex items-center gap-1 text-lg md:text-2xl font-normal mt-4">{renderStars(product.rating.rate)}</h2>
+          <h2 className="flex items-center gap-1 text-lg md:text-2xl font-normal mt-4">
+            {renderStars(product.rating.rate)}
+          </h2>
+          <p className="text-sm md:text-base text-gray-600 mt-4">{product.description}</p>
           <h2 className="text-2xl md:text-4xl font-normal mt-6 md:mt-10 mb-6">${product.price}</h2>
 
-          <div className="flex flex-col gap-7 py-5">
-            <div className="flex flex-row items-center gap-x-7">
+          <div className="flex flex-col gap-5 py-4">
+            <div className="flex flex-row items-center gap-x-5">
               <button
-                className="flex-grow border border-black rounded-md px-4 py-3 md:py-4 transition-colors duration-300 hover:bg-black hover:text-white"
+                className="flex-grow border border-black rounded-md px-3 py-2 transition-colors duration-300 hover:bg-black hover:text-white"
                 aria-label="Add to cart"
               >
-                <span className="text-base md:text-lg">Add To Cart</span>
+                <span className="text-sm md:text-base">Add To Cart</span>
               </button>
               <button
-                className="flex h-full items-center justify-center px-4"
+                className="flex items-center justify-center px-2"
               >
-                <Heart size={60} strokeWidth={1} />
+                <Heart size={30} strokeWidth={1} />
               </button>
             </div>
             <button
-              className="border border-black rounded-md px-4 py-3 md:py-4 w-full transition-colors duration-300 hover:bg-black hover:text-white"
+              className="border border-black rounded-md px-3 py-2 w-full transition-colors duration-300 hover:bg-black hover:text-white"
               aria-label="Buy now"
             >
-              <span className="text-base md:text-lg">Buy Now</span>
+              <span className="text-sm md:text-base">Buy Now</span>
             </button>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
