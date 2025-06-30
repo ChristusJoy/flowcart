@@ -1,8 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { X, Ellipsis, ChevronDown, User, Heart, ShoppingBag, Search, } from "lucide-react"
+import { X, Ellipsis, ChevronDown, User, Heart, ShoppingBag, } from "lucide-react"
 import { Link } from 'react-router-dom'
 const navigation = [
-  { name: 'Search', href: '#', logo: <Search size={17} /> },
   { name: 'Account', href: '/account', logo: <User size={17} /> },
   { name: 'Wishlist', href: '/wishlist', logo: <Heart size={17} /> },
   { name: 'Cart', href: '/cart', logo: <ShoppingBag size={17} /> },
@@ -30,25 +29,6 @@ export default function Header() {
             <Link to="/" className="text-4xl md:text-7xl font-bold text-blue-200 ">FlowCart</Link>
             <div className="hidden sm:flex sm:ml-auto">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      'text-xl text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'rounded-md px-3 py-2 text-sm font-medium flex items-center',
-                    )}
-                  >
-                    {item.logo && (
-                      <span className="mr-2">
-                        {item.logo}
-                      </span>
-                    )}
-                    {item.name}
-
-                  </a>
-                ))}
                 <div className="relative group flex rounded-md px-3 py-2">
                   <div className={classNames(
                     'text-xl text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -70,6 +50,26 @@ export default function Header() {
 
                   </div>
                 </div>
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    aria-current={item.current ? 'page' : undefined}
+                    className={classNames(
+                      'text-xl text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'rounded-md px-3 py-2 text-sm font-medium flex items-center',
+                    )}
+                  >
+                    {item.logo && (
+                      <span className="mr-2">
+                        {item.logo}
+                      </span>
+                    )}
+                    {item.name}
+
+                  </a>
+                ))}
+                
               </div>
             </div>
           </div>
