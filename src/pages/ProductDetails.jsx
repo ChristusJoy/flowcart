@@ -7,7 +7,6 @@ import Footer from '../components/Footer';
 
 const renderStars = (rating) => {
   const stars = [];
-
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -28,6 +27,8 @@ const renderStars = (rating) => {
 };
 
 const ProductDetails = () => {
+  const [liked, setLiked] = useState(false);
+  const toggleLike = () => setLiked(prev => !prev);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -62,24 +63,32 @@ const ProductDetails = () => {
           <div className="flex flex-col gap-5 py-4">
             <div className="flex flex-row items-center gap-x-5">
               <button
-                className="flex-grow border border-black rounded-md px-3 py-2 transition-colors duration-300 hover:bg-black hover:text-white"
+                className="min-w-[140px] border border-black rounded-lg px-6 py-3 text-black font-medium text-base transition-colors duration-300 hover:bg-black hover:text-white"
                 aria-label="Add to cart"
               >
-                <span className="text-sm md:text-base">Add To Cart</span>
+                Add To Cart
               </button>
               <button
-                className="flex items-center justify-center px-2"
+                onClick={toggleLike}
+                className={`flex items-center justify-center p-2 rounded-lg transition-colors duration-300 ${liked ? 'bg-red-100' : 'hover:bg-red-100'
+                  }`}
+                aria-label="Add to wishlist"
               >
-                <Heart size={30} strokeWidth={1} />
+                <Heart
+                  size={28}
+                  strokeWidth={1.5}
+                  className={liked ? 'text-red-600 fill-red-600' : 'text-gray-500'}
+                />
               </button>
             </div>
             <button
-              className="border border-black rounded-md px-3 py-2 w-full transition-colors duration-300 hover:bg-black hover:text-white"
+              className="min-w-[140px] bg-blue-600 text-white rounded-lg px-6 py-3 font-semibold text-lg transition-colors duration-300 hover:bg-blue-700"
               aria-label="Buy now"
             >
-              <span className="text-sm md:text-base">Buy Now</span>
+              Buy Now
             </button>
           </div>
+
         </div>
       </div>
       <Footer />
