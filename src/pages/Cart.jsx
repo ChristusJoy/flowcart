@@ -41,67 +41,72 @@ const CartPage = () => {
         <div className="flex flex-col min-h-screen bg-gray-50">
             <Header />
             <main className="flex-grow">
-                <div className="max-w-6xl mx-auto p-6">
-                    <h1 className="text-4xl font-bold mb-6 text-center">Your Cart</h1>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+                    <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Your Cart</h1>
                     {cartItems.length === 0 ? (
                         <div className="text-center text-gray-500 mt-20 text-lg">
                             Your cart is currently empty.
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            <div className="lg:col-span-2 space-y-6">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                            <div className="lg:col-span-2 space-y-4 sm:space-y-6">
                                 {cartItems.map(item => (
                                     <div
                                         key={item.id}
-                                        className="flex items-center justify-between border p-4 rounded-xl shadow-sm bg-white"
+                                        className="flex flex-col sm:flex-row sm:items-center justify-between border p-4 sm:p-6 rounded-xl shadow-sm bg-white gap-4"
                                     >
-                                        <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-4 w-full sm:w-auto">
                                             <img
                                                 src={item.image}
                                                 alt={item.title}
                                                 className="w-16 h-16 object-contain"
                                             />
-                                            <div className="max-w-xs">
-                                                <h2 className="font-semibold text-gray-800 truncate">{item.title}</h2>
+                                            <div className="flex-1 text-wrap">
+                                                <h2 className="font-semibold text-gray-800 line-clamp-1">{item.title}</h2>
                                                 <p className="text-sm text-gray-500">{item.category}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-2">
-                                            <button
-                                                onClick={() => updateQuantity(item.id, -1)}
-                                                className="p-1 hover:bg-gray-200 rounded"
-                                            >
-                                                <Minus size={16} />
-                                            </button>
-                                            <span className="px-2">{item.quantity}</span>
-                                            <button
-                                                onClick={() => updateQuantity(item.id, 1)}
-                                                className="p-1 hover:bg-gray-200 rounded"
-                                            >
-                                                <Plus size={16} />
-                                            </button>
+
+                                        <div className="flex flex-col sm:flex-row items-center justify-between w-full sm:w-auto sm:gap-4">
+                                            <div className="flex items-center gap-2 mt-2 sm:mt-0">
+                                                <button
+                                                    onClick={() => updateQuantity(item.id, -1)}
+                                                    className="p-1 hover:bg-gray-200 rounded"
+                                                >
+                                                    <Minus size={16} />
+                                                </button>
+                                                <span className="px-2">{item.quantity}</span>
+                                                <button
+                                                    onClick={() => updateQuantity(item.id, 1)}
+                                                    className="p-1 hover:bg-gray-200 rounded"
+                                                >
+                                                    <Plus size={16} />
+                                                </button>
+                                            </div>
+                                            <div className="flex items-center justify-between gap-4 mt-2 sm:mt-0">
+                                                <div className="w-20 text-right font-medium text-gray-700">
+                                                    ${(item.price * item.quantity).toFixed(2)}
+                                                </div>
+                                                <button onClick={() => removeItem(item.id)}>
+                                                    <Trash2 size={18} className="text-red-500 hover:text-red-700" />
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div className="w-20 text-right font-medium text-gray-700">
-                                            ${(item.price * item.quantity).toFixed(2)}
-                                        </div>
-                                        <button onClick={() => removeItem(item.id)}>
-                                            <Trash2 size={18} className="text-red-500 hover:text-red-700" />
-                                        </button>
                                     </div>
                                 ))}
                             </div>
 
-                            <div className="border rounded-xl p-6 shadow-md bg-white h-fit">
+                            <div className="border rounded-xl p-4 sm:p-6 shadow-md bg-white h-fit">
                                 <h2 className="text-xl font-bold mb-4">Order Summary</h2>
-                                <div className="flex justify-between mb-2">
+                                <div className="flex justify-between mb-2 text-sm sm:text-base">
                                     <span>Subtotal</span>
                                     <span>${subtotal}</span>
                                 </div>
-                                <div className="flex justify-between mb-4">
+                                <div className="flex justify-between mb-4 text-sm sm:text-base">
                                     <span>Shipping</span>
                                     <span className="text-green-600 font-medium">Free</span>
                                 </div>
-                                <div className="flex justify-between font-bold text-lg border-t pt-4">
+                                <div className="flex justify-between font-bold text-base sm:text-lg border-t pt-4">
                                     <span>Total</span>
                                     <span>${subtotal}</span>
                                 </div>

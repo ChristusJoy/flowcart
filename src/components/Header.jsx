@@ -47,7 +47,6 @@ export default function Header() {
                     <Link to="/category/jewelery" className="block px-4 py-2 hover:bg-gray-100">Jewelery</Link>
                     <Link to="/category/men's clothing" className="block px-4 py-2 hover:bg-gray-100">Men's Clothing</Link>
                     <Link to="/category/women's clothing" className="block px-4 py-2 hover:bg-gray-100">Women's Clothing</Link>
-
                   </div>
                 </div>
                 {navigation.map((item) => (
