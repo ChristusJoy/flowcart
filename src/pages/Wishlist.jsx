@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Heart, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 const Wishlist = () => {
     const [wishlistItems, setWishlistItems] = useState([]);
